@@ -1,0 +1,10 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t davidswiatkiewiez/docker-tutorial -f Dockerfile.dev . 
+
+script:
+  - docker run -e CI=true davidswiatkiewiez/docker-tutorial npm run test
